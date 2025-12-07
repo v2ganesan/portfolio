@@ -17,8 +17,8 @@ export default function ExperienceCard ( {Title, Dates, BulletPoints}) {
                 <h1>{Title}</h1>
                 <h3>{Dates}</h3>
                 
-                {BulletPoints.map((BulletPoint) => {
-                    return <h2 key={BulletPoint.id}>{BulletPoint}</h2>
+                {BulletPoints.map((BulletPoint, index) => {
+                    return <h2 key={index}>{BulletPoint}</h2>
                 })}
             </div>
 
@@ -27,5 +27,4 @@ export default function ExperienceCard ( {Title, Dates, BulletPoints}) {
             </div>
         </ReactCardFlip>
     )
-
 }
