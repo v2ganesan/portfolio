@@ -16,13 +16,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={changa.className}>
-        <NavBar className="NavBar"/>
-        <main className="page-content">
+        <NavBar/>
+        <main className="text-left mx-auto px-10 py-5">
           {children}
         </main>
-        <Footer className="Footer"/>
+        <Footer/>
       </body>
-      
     </html>
   );
 }
