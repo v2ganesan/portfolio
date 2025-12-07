@@ -1,4 +1,5 @@
 import NavBar from '../components/navBar'
+import Footer from '../components/footer'
 import { Changa } from "next/font/google";
 
 /*
@@ -15,9 +16,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={changa.className}>
-        <NavBar />
-        {children}
+        <NavBar className="NavBar"/>
+        <main className="page-content">
+          {children}
+        </main>
+        <Footer className="Footer"/>
       </body>
+      
     </html>
   );
 }
