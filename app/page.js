@@ -1,6 +1,6 @@
 
 export default function Home() {
   return (
-    <h1>Hello this is my app</h1>
+    <h1>Varun Ganesan</h1>
   )
 }
