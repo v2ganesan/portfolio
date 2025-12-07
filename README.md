@@ -1,1 +1,1 @@
-Writing my portfolio without AI for practice 
+Writing my portfolio without any AI generated code for practice 
