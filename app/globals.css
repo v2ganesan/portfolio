@@ -80,8 +80,9 @@ body {
   text-align: center;
   margin-top: -10px;
   gap: 20px
-  
-
+}
+.experience-container h1 {
+  font-size: 20px
 }
 
 .cards-wrapper {
@@ -89,6 +90,7 @@ body {
   flex-direction: row;
   gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
