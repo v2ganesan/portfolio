@@ -1,5 +1,5 @@
 export default function Experience (){
     return (
-        <h1> Professional Experience </h1>
+        <h1> Build. Deploy. Profit. </h1>
     )
 }
