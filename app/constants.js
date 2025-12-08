@@ -30,3 +30,27 @@ export const PlatePal = [
   "- Using motion sensor data from the SJSU food pantry, foot traffic was collected and stored in MongoDB.",
   "- Built a user-friendly interface, sharing the busyness of a location from sensor data."
 ]
+
+/* filler responses for now */
+
+export const Commands = {
+  "v2 welcome": "Welcome to my portfolio! Type 'v2 help' to see available commands.",
+  "v2 about-v": "Chillin fr",
+  "v2 help": `Available Commands:
+  - v2 about-v: Learn more about me
+  - v2 status: Check website development progress
+  - cd [page_name]: Navigate to directories (home, experience, projects, blog)
+  - more coming soon! 
+
+  Note: Some commands are currently placeholders as the site is under active construction.`,
+
+  "v2 status": `Not finished, I want to add a lot more interactivity to this terminal component
+                , and I need to add my key takeaways for my experiences and projects. Gotta get that 
+                blog up and running too. `,
+
+
+  "cd home": "Navigating to home... (This'll just redirect you to the homepage, not finished)",
+  "cd experience": "Navigating to experience... (This'll just redirect you to the homepage, not finished)",
+  "cd projects": "Navigating to projects... (This'll just redirect you to the homepage, not finished)",
+  "cd blog": "Navigating to blog... (This'll just redirect you to the homepage, not finished)"
+};
