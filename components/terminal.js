@@ -5,7 +5,7 @@ import { Commands } from "@/app/constants";
 import localFont from "next/font/local"
 import TerminalHistory from "./TerminalHistory"
 import TerminalInput from "./TerminalInput"
-
+import { redirect } from 'next/navigation'
 const sfMono = localFont({
     src: "../public/fonts/sfmono/SF-Mono-Regular.otf",
 });
@@ -21,9 +21,19 @@ export default function HomeTerminal () {
     const handleCommand = () => {
         const command = value
         if (!command) return;
-
-        const response = Commands[command] || `Command not found: ${command}. Type 'help' for available commands.`;
         
+        // if the command exists:
+            // if the length of the comand result > 1 (this means its a cd command)
+                // route to Commands[Command][0] and response = Commands[command][1]
+        const isCdCommand = Commands[command] && Commands[command].length > 1
+        const response =  (Commands[command] ? 
+                            (isCdCommand ? Commands[command][1]: Commands[command])
+                            : 
+                            `Command not found: ${command}. Type 'v2 help' for available commands.`
+                          )
+        if (isCdCommand)   {
+            redirect(`${Commands[command][1]}`)
+        }                
         const newId = Object.keys(chatHistory).length + 1;
         setChatHistory(prev => ({
             ...prev,
