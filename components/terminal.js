@@ -5,7 +5,9 @@ import { Commands } from "@/app/constants";
 import localFont from "next/font/local"
 import TerminalHistory from "./TerminalHistory"
 import TerminalInput from "./TerminalInput"
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+
+
 const sfMono = localFont({
     src: "../public/fonts/sfmono/SF-Mono-Regular.otf",
 });
@@ -15,6 +17,8 @@ export default function HomeTerminal () {
     const [chatHistory, setChatHistory] = useState({ 1: ["v2 welcome", Commands["v2 welcome"]] })
     const [isWelcomeDone, setIsWelcomeDone] = useState(false)
     const scrollRef = useRef(null)
+    const router = useRouter()
+
 
     const handleDone = () => { setIsWelcomeDone(true) };
     
@@ -37,10 +41,11 @@ export default function HomeTerminal () {
             [newId]: [command, response]
         }));
         setValue("");
-        
+
         if (isCdCommand)   {
-            console.log(command, " is a cd command", Commands[command])
-            redirect(`${Commands[command][0]}`)
+                setTimeout(() =>{
+                    router.push(Commands[command][0])
+                }, 500)
         }
     }
 
