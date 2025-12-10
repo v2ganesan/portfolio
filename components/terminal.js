@@ -25,21 +25,23 @@ export default function HomeTerminal () {
         // if the command exists:
             // if the length of the comand result > 1 (this means its a cd command)
                 // route to Commands[Command][0] and response = Commands[command][1]
-        const isCdCommand = Commands[command] && Commands[command].length > 1
+        const isCdCommand = Array.isArray(Commands[command]);
         const response =  (Commands[command] ? 
                             (isCdCommand ? Commands[command][1]: Commands[command])
                             : 
                             `Command not found: ${command}. Type 'v2 help' for available commands.`
-                          )
-        if (isCdCommand)   {
-            redirect(`${Commands[command][1]}`)
-        }                
+                          )                
         const newId = Object.keys(chatHistory).length + 1;
         setChatHistory(prev => ({
             ...prev,
             [newId]: [command, response]
         }));
         setValue("");
+        
+        if (isCdCommand)   {
+            console.log(command, " is a cd command", Commands[command])
+            redirect(`${Commands[command][0]}`)
+        }
     }
 
     useEffect(() => {
