@@ -49,8 +49,8 @@ export const Commands = {
                 blog up and running too. `,
 
 
-  "cd home": "Navigating to home... (This'll just redirect you to the homepage, not finished)",
-  "cd experience": "Navigating to experience... (This'll just redirect you to the homepage, not finished)",
-  "cd projects": "Navigating to projects... (This'll just redirect you to the homepage, not finished)",
-  "cd blog": "Navigating to blog... (This'll just redirect you to the homepage, not finished)"
-};
+  "cd home": ["/", "Navigating to home..."],
+  "cd experience": ["/experience", "Navigating to experience..."],
+  "cd projects": ["/projects", "Navigating to projects..."],
+  "cd blog": ["/blog", "Navigating to blog..."]
+}
