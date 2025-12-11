@@ -1,6 +1,7 @@
 import NavBar from '../components/navBar'
 import Footer from '../components/footer'
 import { Changa } from "next/font/google";
+import { Analytics } from '@vercel/analytics/next';
 
 /*
 font loader function
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer/>
+        <Analytics />
       </body>
     </html>
   );
