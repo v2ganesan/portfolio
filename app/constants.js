@@ -35,7 +35,7 @@ export const PlatePal = [
 
 export const Commands = {
   "v2 welcome": "Welcome to my portfolio! Type 'v2 help' to see available commands.",
-  "v2 about-v": "Chillin fr",
+  "v2 about-v": "I'm Varun Ganesan, a student at San Jose State University pursuing a B.S. in Computer Science. Currently looking for SWE internship roles for 2026. If my skillset looks like a match for your team/company, don't hesitate to reach out! ",
   "v2 help": `Available Commands:
   - v2 about-v: Learn more about me
   - v2 status: Check website development progress
