@@ -28,12 +28,8 @@ function formatTrack(track) {
 }
 
 export async function GET() {
-  const tokenData = await getAccessToken()
-  const { access_token } = tokenData
-
-  if (!access_token) {
-    return Response.json({ error: 'token_failed', detail: tokenData }, { status: 500 })
-  }
+  const { access_token } = await getAccessToken()
+  if (!access_token) return Response.json({ isPlaying: false, title: null })
 
   const nowRes = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
     headers: { Authorization: `Bearer ${access_token}` },
@@ -53,9 +49,7 @@ export async function GET() {
   const recentData = await recentRes.json()
   const track = recentData.items?.[0]?.track
 
-  if (!track) {
-    return Response.json({ error: 'no_tracks', detail: recentData }, { status: 500 })
-  }
+  if (!track) return Response.json({ isPlaying: false, title: null })
 
   return Response.json({ isPlaying: false, ...formatTrack(track) })
 }
