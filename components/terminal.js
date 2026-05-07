@@ -56,18 +56,28 @@ export default function HomeTerminal () {
     }, [chatHistory]);
 
     return (
-        <div 
-            ref={scrollRef}
-            className={`h-[550px] w-[500px] mx-auto my-auto flex flex-col rounded-0 overflow-y-auto border-2 border-[#865312] bg-white dark:bg-[#171717] p-2 ${sfMono.className}`}
-        >
-            <TerminalHistory animationDone={handleDone} chatHistory={chatHistory} />
-            {isWelcomeDone && (
-                <TerminalInput 
-                value={value}
-                onChange={setValue}
-                onEnter={handleCommand}
-                />
-            )}
+        <div className={`w-[500px] mx-auto my-auto flex flex-col rounded-lg overflow-hidden border border-gray-200 dark:border-[#333] shadow-xl ${sfMono.className}`}>
+            <div className="flex items-center bg-[#e8e8e8] dark:bg-[#2d2d2d] px-3 py-2 flex-shrink-0">
+                <div className="flex gap-1.5">
+                    <span className="w-3 h-3 rounded-full bg-[#FF5F57]"></span>
+                    <span className="w-3 h-3 rounded-full bg-[#FEBC2E]"></span>
+                    <span className="w-3 h-3 rounded-full bg-[#28C840]"></span>
+                </div>
+                <span className="flex-1 text-center text-xs text-gray-500 dark:text-gray-400">v2@admin: ~ — bash</span>
+            </div>
+            <div
+                ref={scrollRef}
+                className="h-[520px] flex flex-col bg-white dark:bg-[#171717] p-2 overflow-y-auto"
+            >
+                <TerminalHistory animationDone={handleDone} chatHistory={chatHistory} />
+                {isWelcomeDone && (
+                    <TerminalInput
+                    value={value}
+                    onChange={setValue}
+                    onEnter={handleCommand}
+                    />
+                )}
+            </div>
         </div>
     )
 }

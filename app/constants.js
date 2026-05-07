@@ -1,5 +1,8 @@
 /* Experiences / Projects */
 
+export const Veeva = []
+
+
 export const USAA = [
   "- Built a testing harness for Property Insurance APIs to streamline validation and accelerate development.",
   "- Refactored existing APIs to enable smoke test calls across multiple environments with authentication cookies.",

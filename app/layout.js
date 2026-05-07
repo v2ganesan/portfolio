@@ -1,5 +1,6 @@
 import NavBar from '../components/navBar'
 import Footer from '../components/footer'
+import '../app/globals.css'
 import { Changa } from "next/font/google";
 
 /*
@@ -8,7 +9,6 @@ font loader function
 - saves it in the changa var 
 - now I can reference it in any opening tag as the className
 */
-import '../app/globals.css'
 const changa = Changa({ subsets: ["latin"] });
 
 
