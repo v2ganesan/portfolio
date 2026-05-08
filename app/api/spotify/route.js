@@ -53,7 +53,7 @@ export async function GET() {
   if (!track) return Response.json({ isPlaying: false, title: null })
 
   return Response.json({ isPlaying: false, ...formatTrack(track) })
-  } catch (e) {
-    return Response.json({ isPlaying: false, title: null, error: e.message })
+  } catch {
+    return Response.json({ isPlaying: false, title: null })
   }
 }
