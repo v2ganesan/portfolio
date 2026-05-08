@@ -28,6 +28,7 @@ function formatTrack(track) {
 }
 
 export async function GET() {
+  try {
   const { access_token } = await getAccessToken()
   if (!access_token) return Response.json({ isPlaying: false, title: null })
 
@@ -52,4 +53,7 @@ export async function GET() {
   if (!track) return Response.json({ isPlaying: false, title: null })
 
   return Response.json({ isPlaying: false, ...formatTrack(track) })
+  } catch (e) {
+    return Response.json({ isPlaying: false, title: null, error: e.message })
+  }
 }
