@@ -9,18 +9,26 @@ function SpotifyIcon() {
   )
 }
 
+const CACHE_KEY = 'spotify_last_track'
+
 export default function NowPlaying() {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(() => {
+    try {
+      const cached = localStorage.getItem(CACHE_KEY)
+      return cached ? { ...JSON.parse(cached), isPlaying: false } : null
+    } catch { return null }
+  })
 
   useEffect(() => {
     async function fetch_() {
       try {
         const res = await fetch('/api/spotify')
         const json = await res.json()
-        setData(json?.title ? json : null)
-      } catch {
-        setData(null)
-      }
+        if (json?.title) {
+          localStorage.setItem(CACHE_KEY, JSON.stringify(json))
+          setData(json)
+        }
+      } catch {}
     }
     fetch_()
     const id = setInterval(fetch_, 30_000)
