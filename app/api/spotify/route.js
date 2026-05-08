@@ -37,8 +37,8 @@ export async function GET() {
 
   if (nowRes.status === 200) {
     const data = await nowRes.json()
-    if (data?.is_playing && data.item) {
-      return Response.json({ isPlaying: true, ...formatTrack(data.item) })
+    if (data?.item) {
+      return Response.json({ isPlaying: data.is_playing, ...formatTrack(data.item) })
     }
   }
 
